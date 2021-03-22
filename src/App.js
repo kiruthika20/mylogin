@@ -2,23 +2,23 @@ import React, { useState } from "react";
 
 function App() {
   const [fullName, setFullName] = useState({
-    fName: "",
-    lName: ""
+    firstName: "",
+    lastName: ""
   });
 
   function handleChange(event) {
     const { value, name } = event.target;
 
     setFullName(prevValue => {
-      if (name === "fName") {
+      if (name === "firstName") {
         return {
-          fName: value,
-          lName: prevValue.lName
+          firstName: value,
+          lastName: prevValue.lastName
         };
-      } else if (name === "lName") {
+      } else if (name === "lastName") {
         return {
-          fName: prevValue.fName,
-          lname: value
+          firstName: prevValue.fName,
+          lastName: value
         };
       }
     });
@@ -27,20 +27,20 @@ function App() {
   return (
     <div className="container">
       <h1>
-        Hi {fullName.fName} {fullName.lName}
+        Hi {fullName.firstName} {fullName.lastName}
       </h1>
       <form>
         <input
-          name="fName"
+          name="firstName"
           onChange={handleChange}
           placeholder="First Name"
-          value={fullName.fName}
+          value={fullName.firstName}
         />
         <input
-          name="lName"
+          name="lastName"
           onChange={handleChange}
           placeholder="Last Name"
-          value={fullName.lName}
+          value={fullName.lastName}
         />
         <button>Submit</button>
       </form>
